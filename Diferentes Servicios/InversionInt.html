@@ -13,9 +13,7 @@
 <style>
     .dropdown-item:hover {
         color: black !important;
-        /* Cambia el color del texto a negro en hover */
     }
-
 
     .float {
         position: fixed;
@@ -35,7 +33,6 @@
     .my-float {
         margin-top: 16px;
     }
-
 
     .btn {
         font-size: 17px;
@@ -87,47 +84,39 @@
         color: aliceblue;
     }
 
-
-
     .card {
         background-color: #ffffff;
-        /* Color de fondo similar al de la imagen */
         border: none;
         padding: 20px;
     }
 
     .card-body {
         display: flex;
-        align-items: flex-start;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .card-title {
-        font-size: 2.5rem;
-        /* Tamaño grande para el título */
+        font-size: 3rem;
         font-weight: bold;
         color: #000000;
-        /* Color oscuro para el título */
         margin: 0;
-        width: 40%;
-        /* Ocupa el 45% del ancho de la tarjeta */
     }
 
     .text-container {
-        width: 50%;
-        display: flex;
-        justify-content: flex-end;
+        font-size: 1.1rem;
+        color: #616161;
+        line-height: 1.5;
+        width: 70%;
     }
 
-    .card-text {
-        font-size: 1.1rem;
-        /* Tamaño adecuado para el texto */
-        color: #616161;
-        /* Color oscuro para el texto */
-        max-width: 80%;
-        /* Reduce el ancho máximo del texto */
-        line-height: 1.5;
-        /* Espaciado del texto */
-
+    /* Responsividad */
+    @media (max-width: 767.98px) {
+        .card-body {
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+        }
     }
 
     footer {
@@ -182,4 +171,9 @@
     <footer>
         <div class="text-muted mt-3">© 2035 by Atelier Homes</div>
     </footer>
+
+     <!-- Bootstrap JS y dependencias -->
+     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>

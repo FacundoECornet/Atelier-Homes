@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -7,115 +7,113 @@
     <title>Servicios</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .dropdown-item:hover {
+            color: black !important;
+        }
 
-</head>
+        .float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+        }
 
-<style>
-    .dropdown-item:hover {
-        color: black !important;
-        /* Cambia el color del texto a negro en hover */
-    }
+        .my-float {
+            margin-top: 16px;
+        }
 
+        .btn {
+            font-size: 17px;
+            background: transparent;
+            border: none;
+            padding: 1em 1.5em;
+            color: #000000;
+            text-transform: uppercase;
+            position: relative;
+            transition: 0.5s ease;
+            cursor: pointer;
+        }
 
-    .float {
-        position: fixed;
-        width: 60px;
-        height: 60px;
-        bottom: 40px;
-        right: 40px;
-        background-color: #25d366;
-        color: #FFF;
-        border-radius: 50px;
-        text-align: center;
-        font-size: 30px;
-        box-shadow: 2px 2px 3px #999;
-        z-index: 100;
-    }
+        .btn::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 2px;
+            width: 0;
+            background-color: #3b3b3a;
+            transition: 0.5s ease;
+        }
 
-    .my-float {
-        margin-top: 16px;
-    }
+        .btn:hover {
+            color: #1e1e2b;
+            transition-delay: 0.5s;
+        }
 
+        .btn:hover::before {
+            width: 100%;
+        }
 
-    .btn {
-        font-size: 17px;
-        background: transparent;
-        border: none;
-        padding: 1em 1.5em;
-        color: #000000;
-        text-transform: uppercase;
-        position: relative;
-        transition: 0.5s ease;
-        cursor: pointer;
-    }
+        .btn::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 0;
+            width: 100%;
+            background-color: #484846;
+            transition: 0.4s ease;
+            z-index: -1;
+        }
 
-    .btn::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 2px;
-        width: 0;
-        background-color: #3b3b3a;
-        transition: 0.5s ease;
-    }
+        .btn:hover::after {
+            height: 100%;
+            transition-delay: 0.4s;
+            color: aliceblue;
+        }
 
-    .btn:hover {
-        color: #1e1e2b;
-        transition-delay: 0.5s;
-    }
-
-    .btn:hover::before {
-        width: 100%;
-    }
-
-    .btn::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 0;
-        width: 100%;
-        background-color: #484846;
-        transition: 0.4s ease;
-        z-index: -1;
-    }
-
-    .btn:hover::after {
-        height: 100%;
-        transition-delay: 0.4s;
-        color: aliceblue;
-    }
-
-
-
-    .card {
-            background-color: #ffffff; /* Color de fondo similar al de la imagen */
+        .card {
+            background-color: #ffffff;
             border: none;
             padding: 20px;
         }
+
         .card-body {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
+            justify-content: space-between;
         }
+
         .card-title {
-            font-size: 2.5rem; /* Tamaño grande para el título */
+            font-size: 3rem;
             font-weight: bold;
-            color: #000000; /* Color oscuro para el título */
+            color: #000000;
             margin: 0;
-            width: 40%; /* Ocupa el 45% del ancho de la tarjeta */
         }
+
         .text-container {
-            width: 50%;
-            display: flex;
-            justify-content: flex-end;
+            font-size: 1.1rem;
+            color: #616161;
+            line-height: 1.5;
+            width: 70%;
         }
-        .card-text {
-            font-size: 1.1rem; /* Tamaño adecuado para el texto */
-            color: #616161; /* Color oscuro para el texto */
-            max-width: 80%; /* Reduce el ancho máximo del texto */
-            line-height: 1.5; /* Espaciado del texto */
-            
+
+        /* Responsividad */
+        @media (max-width: 767.98px) {
+            .card-body {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
         }
 
         footer {
@@ -124,24 +122,22 @@
             width: 100%;
             text-align: center;
         }
-
-</style>
+    </style>
+</head>
 
 <body>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#"><img src="../Img/atelier negro.png" alt="" width="180" height="50"></a>
-        <!-- Botón de colapso para móviles -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
             aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Contenido del Navbar -->
-        <div class="collapse navbar-collapse md-nav justify-content-end" id="navbarContent">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="../index.html"> <button class="btn">Inicio</button></a>
+                <li class="nav-item"><a class="nav-link" href="../index.html"><button class="btn">Inicio</button></a>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="../Servicios/Servicios.html"><button
                             class="btn">Servicios</button></a></li>
@@ -152,20 +148,27 @@
         </div>
     </nav>
 
-
-
+    <!-- Card de contenido -->
     <div class="card mb-3">
         <img src="../Img/VentaInm.jpg" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">Venta de Inmuebles</h5>
-            <div class="text-container">
-                <p class="card-text">
-                    Cada inmueble es diferente por lo que es necesario desarrollar un plan de ventas personalizado para
-                    cada uno. Contamos con un equipo de expertos que elaborarán un plan de marketing multidisciplinar
-                    para obtener la mejor venta de mercado.
-                </p>
-            </div>
+            <p class="text-container ml-md-3">
+                Cada inmueble es único, por lo que desarrollamos un plan de ventas completamente personalizado para cada
+                propiedad. Nuestro equipo de expertos combina estrategias de marketing digital, análisis de mercado y
+                atención a las tendencias para maximizar el potencial de venta. 
+            </p>
         </div>
     </div>
-    <footer><div class="text-muted mt-3">© 2035 by Atelier Homes</div></footer>
+
+    <footer>
+        <div class="text-muted mt-3">© 2035 by Atelier Homes</div>
+    </footer>
+
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
+</html>
