@@ -1,0 +1,39 @@
+[
+    {
+        "id": 1,
+        "titulo": "Casa el Nogal",
+        "descripcion": "Un hermoso hogar en pleno centro de la ciudad.",
+        "ubicacion": "Suburbios",
+        "precio": 350000,
+        "tipo": "Alquiler",
+        "imagen": "https://static.wixstatic.com/media/00602b_a33a4ab9a0fd4ea499681a5af613e028~mv2.jpg/v1/fill/w_776,h_293,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Casa%201-18.jpg"
+    },
+    {
+        "id": 2,
+        "titulo": "Casa Los Aromos",
+        "descripcion": "Amplia casa con jardín ideal para familias.",
+        "ubicacion": "Zona Residencial",
+        "precio": 200000,
+        "tipo": "Venta",
+        "imagen": "https://static.wixstatic.com/media/00602b_a03a3ed086614effa5f90f403263b54f~mv2.jpg/v1/fill/w_776,h_293,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Casa%202%20Redes-2.jpg"
+    },
+    {
+        "id": 3,
+        "titulo": "Departamento dos ambientes",
+        "descripcion": "Departamento dos ambientes con todas las comodidades.",
+        "ubicacion": "Playa",
+        "precio": 25000,
+        "tipo": "Alquiler",
+        "imagen": "https://lujosos-departamentos-excelente-zona.mendoza-hotels-ar.com/data/Photos/OriginalPhoto/15998/1599844/1599844789/mendoza-photo-9.JPEG"
+    },
+
+    {
+        "id": 4,
+        "titulo": "Departamento centro",
+        "descripcion": "Gran departamento, con una ubicacion excelente",
+        "ubicacion": "Centro",
+        "precio": 15000,
+        "tipo": "Venta",
+        "imagen": "https://lujosos-departamentos-excelente-zona.mendoza-hotels-ar.com/data/Photos/OriginalPhoto/15062/1506255/1506255655/mendoza-photo-19.JPEG"
+    }
+]
