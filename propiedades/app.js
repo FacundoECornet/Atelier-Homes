@@ -1,4 +1,4 @@
-let propiedades = [];  // Variable global para almacenar las propiedades
+let propiedades = [];  
 
 // Función para cargar propiedades desde el archivo JSON
 async function cargarPropiedades() {
@@ -7,9 +7,9 @@ async function cargarPropiedades() {
         if (!response.ok) {
             throw new Error('No se pudo cargar el archivo JSON');
         }
-        propiedades = await response.json();  // Asignar a la variable global
-        console.log(propiedades);  // Verifica que el JSON se haya cargado correctamente
-        renderizarPropiedades(propiedades);  // Llamar a renderizar después de cargar los datos
+        propiedades = await response.json();  
+        console.log(propiedades);  
+        renderizarPropiedades(propiedades);  
     } catch (error) {
         console.error(error);
     }
@@ -18,11 +18,11 @@ async function cargarPropiedades() {
 // Función para renderizar las propiedades en la página
 function renderizarPropiedades(propiedades) {
     const listaPropiedades = document.getElementById('listapropiedades');
-    listaPropiedades.innerHTML = '';  // Limpiar antes de agregar nuevas cards
+    listaPropiedades.innerHTML = '';  
 
     propiedades.forEach(propiedad => {
         const div = document.createElement('div');
-        div.classList.add('col-12', 'col-md-4', 'mb-4');  // Asegurarse de que las cards se alineen bien
+        div.classList.add('col-12', 'col-md-4', 'mb-4');  
         div.innerHTML = `
         <div class="card" style="width: 18rem;">
             <img src="${propiedad.imagen}" class="card-img-top" alt="Imagen de propiedad">
@@ -34,11 +34,11 @@ function renderizarPropiedades(propiedades) {
             </div>
         </div>
         `;
-        listaPropiedades.appendChild(div);  // Añadir la card al contenedor
+        listaPropiedades.appendChild(div);  
     });
 }
 
-// Llamar a la función para cargar las propiedades al cargar la página
+
 cargarPropiedades();
 
 // Filtro de propiedades
@@ -59,6 +59,11 @@ document.getElementById('filtroForm').addEventListener('submit', function (e) {
         );
     });
 
-    // Renderizar las propiedades filtradas
     renderizarPropiedades(propiedadesFiltradas);
 });
+
+
+
+
+
+

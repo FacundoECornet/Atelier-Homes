@@ -474,7 +474,7 @@ footer p {
 .wrapper .facebook:hover .tooltip,
 .wrapper .facebook:hover .tooltip::before {
   background: #1877f2;
-  color: #fff;
+  color: #ffffff;
 }
 
 .wrapper .twitter:hover,
