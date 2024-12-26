@@ -16,7 +16,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 //const auth = getAuth(app);
 
-export const getPedidos = async () => {
+export const getProduct = async () => {
   const querySnapshot = await getDocs(collection(db, 'propiedades'));  //Obtiene todos los documentos de la colección productos de Firestore
   return querySnapshot;//Devuelve el resultado
 };
