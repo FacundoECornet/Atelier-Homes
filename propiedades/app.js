@@ -7,7 +7,7 @@ function renderizarPropiedades(propiedad) {
     const div = document.createElement('div');
     div.classList.add('col-12', 'col-md-4', 'mb-4');
     div.innerHTML = `
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 18rem; max-height: 450px;">
             <img src="${propiedad.img}" class="card-img-top" alt="Imagen de propiedad">
             <div class="card-body">
                 <h5 class="card-title">${propiedad.name}</h5>
@@ -44,8 +44,8 @@ async function cargarPropiedades() {
             size: data.size,
             quantity: data.quantity,
             characteristics: data.Descripcion,
-            img: data.img,
-            img2: data.img2
+            img: data.img
+            
         };
     });
 

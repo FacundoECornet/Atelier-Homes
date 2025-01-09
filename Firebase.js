@@ -21,8 +21,8 @@ export const getProduct = async () => {
   return querySnapshot;//Devuelve el resultado
 };
 
-export const getCompra = async (nombre, precio, talle, cantidad, total) => {
-  const querySnapshot = await getDocs(collection(db, 'pedidos'), { nombre, precio, talle, cantidad, total });
+export const getCompra = async (nombre, precio, talle, cantidad, total, img) => {
+  const querySnapshot = await getDocs(collection(db, 'pedidos'), { nombre, precio, talle, cantidad, total, img });
   return querySnapshot;
 };
 
