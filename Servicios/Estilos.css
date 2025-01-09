@@ -167,3 +167,16 @@
             width: 100%;
           }
           
+          .BotonesAbajo {
+           
+            padding: 20px 40px;
+            border-radius: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .BotonesAbajo {
+                
+                margin-bottom: 10px;
+            }
+        }
+         
