@@ -1,94 +1,44 @@
-import { getProduct, agregarProducto } from "../Firebase.js";
+import { getPropiedades } from "../Firebase.js";
 
 const listaPropiedades = document.getElementById('listapropiedades');
 
-// Función para renderizar las propiedades en la página
-function renderizarPropiedades(propiedad) {
-    const div = document.createElement('div');
-    div.classList.add('col-12', 'col-md-4', 'mb-4');
-    div.innerHTML = `
-        <div class="card" style="width: 18rem; max-height: 450px;">
-            <img src="${propiedad.img}" class="card-img-top" alt="Imagen de propiedad">
-            <div class="card-body">
+// Función para renderizar cada propiedad con enlace en la imagen
+function renderizarPropiedad(propiedad) {
+    return `
+        <div class="card">
+            <!-- Verifica que la URL sea válida antes de usarla -->
+            <a href="${propiedad.url}" target="_blank">
+                <img src="${propiedad.img}" class="card-img-top" alt="Imagen de propiedad">
+            </a>
+            <div class="card-body text-center">
                 <h5 class="card-title">${propiedad.name}</h5>
-                <p class="card-text">${propiedad.characteristics}</p>
-                <p class="card-text" style="font-weight: bold;">${propiedad.price}</p>
-                <button id="button-${propiedad.id}" class="button">Ver propiedad</button>
             </div>
         </div>
     `;
-    return div.outerHTML;
-}
-
-// Función para activar eventos en los botones
-function activarClickEnBotones(propiedades) {
-    propiedades.forEach(propiedad => {
-        const boton = document.querySelector(`#button-${propiedad.id}`);
-        if (boton) {
-            boton.addEventListener('click', () => {
-                alert(`Propiedad seleccionada: ${propiedad.name}`);
-            });
-        }
-    });
 }
 
 // Función para cargar las propiedades desde Firebase
 async function cargarPropiedades() {
-    const productsSnapshot = await getProduct();
-    const propiedades = productsSnapshot.docs.map(doc => {
-        const data = doc.data();
-        return {
-            id: doc.id,
-            name: data.Nombre,
-            price: data.Precio,
-            size: data.size,
-            quantity: data.quantity,
-            characteristics: data.Descripcion,
-            img: data.img
-            
-        };
-    });
+    try {
+        const productsSnapshot = await getPropiedades();
+        const propiedades = productsSnapshot.docs.map(doc => {
+            const data = doc.data();
+            return {
+                id: doc.id,
+                name: data.Nombre || "Sin Nombre", 
+                img: data.img || "https://via.placeholder.com/250x350", 
+                // Verifica que url sea un string válido
+                url: typeof data.url === "string" && data.url !== "" ? data.url : "#" ,
+            };
+        });
 
-    propiedades.forEach(propiedad => {
-        listaPropiedades.innerHTML += renderizarPropiedades(propiedad);
-    });
-    activarClickEnBotones(propiedades);
+        // Renderizar todas las propiedades
+        listaPropiedades.innerHTML = propiedades.map(renderizarPropiedad).join('');
+    } catch (error) {
+        console.error("Error al cargar propiedades:", error);
+    }
 }
 
+// Ejecutar la función al cargar la página
 cargarPropiedades();
 
-// Filtro de propiedades
-document.getElementById('filtroForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    // Obtener los valores de los filtros
-    const keyword = document.getElementById('keyword').value.toLowerCase();
-    const ubicacion = document.getElementById('ubicacion').value.toLowerCase();
-    const tipo = document.getElementById('tipo').value.toLowerCase();
-
-    // Obtener todas las propiedades renderizadas
-    const propiedades = Array.from(document.querySelectorAll('.card')).map(card => {
-        return {
-            titulo: card.querySelector('.card-title').textContent,
-            descripcion: card.querySelector('.card-text').textContent,
-            ubicacion: card.dataset.ubicacion || '',
-            tipo: card.dataset.tipo || ''
-        };
-    });
-
-    // Filtrar las propiedades
-    const propiedadesFiltradas = propiedades.filter(propiedad => {
-        return (
-            (propiedad.titulo.toLowerCase().includes(keyword) || propiedad.descripcion.toLowerCase().includes(keyword)) &&
-            (ubicacion === "" || propiedad.ubicacion.toLowerCase().includes(ubicacion)) &&
-            (tipo === "" || propiedad.tipo.toLowerCase() === tipo)
-        );
-    });
-
-    // Renderizar propiedades filtradas
-    listaPropiedades.innerHTML = '';
-    propiedadesFiltradas.forEach(propiedad => {
-        listaPropiedades.innerHTML += renderizarPropiedades(propiedad);
-    });
-    activarClickEnBotones(propiedadesFiltradas);
-});

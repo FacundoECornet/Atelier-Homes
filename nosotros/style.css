@@ -1,0 +1,355 @@
+.dropdown-item:hover {
+  color: black !important; /* Cambia el color del texto a negro en hover */
+}
+
+
+.float{
+  position:fixed;
+  width:60px;
+  height:60px;
+  bottom:40px;
+  right:40px;
+  background-color:#25d366;
+  color:#FFF;
+  border-radius:50px;
+  text-align:center;
+  font-size:30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index:100;
+}
+
+.my-float{
+  margin-top:16px;
+}
+
+
+.btn {
+  font-size: 17px;
+  background: transparent;
+  border: none;
+  padding: 1em 1.5em;
+  color: #000000;
+  text-transform: uppercase;
+  position: relative;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #3b3b3a;
+  transition: 0.5s ease;
+}
+
+.btn:hover {
+  color: #1e1e2b;
+  transition-delay: 0.5s;
+}
+
+.btn:hover::before {
+  width: 100%;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 0;
+  width: 100%;
+  background-color: #484846;
+  transition: 0.4s ease;
+  z-index: -1;
+}
+
+.btn:hover::after {
+  height: 100%;
+  transition-delay: 0.4s;
+  color: aliceblue;
+}
+
+
+
+
+
+#listanosotros {
+  display: flex;
+  flex-wrap: wrap; /* Permite que las cards se ajusten al tamaño de la pantalla */
+  justify-content: center; /* Centra las cards horizontalmente */
+  gap: 10px; /* Espacio entre las cards */
+  width: 100%; /* Asegura que el contenedor ocupe el 100% del ancho */
+  max-width: 1200px; /* Limita el ancho máximo del contenedor (ajustalo según lo que necesites) */
+  margin: 0 auto; /* Centra el contenedor */
+}
+
+/* Estilos para cada card (sin bordes ni sombras) */
+.card {
+  margin-top: 10px;
+  width: 18rem; /* Ancho fijo para cada card */
+  background: none; /* Quita el fondo de la card */
+  border: none; /* Elimina bordes */
+  box-shadow: none; /* Elimina sombras */
+  text-align: center; /* Centra el texto */
+}
+
+/* Imagen de las cards */
+.card-img-top {
+  width: 100%; /* Asegura que ocupe todo el ancho */
+  height: 250px; /* Ajusta la altura */
+  object-fit: cover; /* Mantiene la proporción sin distorsión */
+  border-radius: 0; /* Elimina bordes redondeados */
+  transition: transform 0.3s ease-in-out; /* Agrega una animación de hover */
+}
+
+/* Efecto hover: solo la imagen se agranda */
+
+/* Estilos del texto (sin bordes ni sombras) */
+.card-body {
+  padding: 10px 0;
+}
+
+.card-title {
+  font-size: 1.2rem; /* Ajusta el tamaño del título */
+  font-weight: bold;
+  margin: 10px 0 0 0; /* Espacio superior */
+  color: #333; /* Color del texto */
+  border: none; /* Elimina cualquier borde */
+}
+
+
+
+
+
+
+/* Asegura que la imagen esté dentro de un contenedor para manejar el hover */
+.card-img-wrapper {
+  position: relative;
+  
+}
+
+/* El overlay que aparece al hacer hover */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Fondo negro semi-transparente */
+  opacity: 0; /* Oculta el overlay inicialmente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+/* Estilos para la descripción */
+.description {
+  color: white;
+  text-align: center;
+  font-size: 18px; /* Aumenta el tamaño de la fuente */
+  font-family: 'Arial', sans-serif; /* Cambia la fuente a Arial (puedes usar cualquier fuente que te guste) */
+  font-weight: bold; /* Hace el texto en negrita */
+  letter-spacing: 1px; /* Espacio entre letras */
+  max-width: 80%;
+  padding: 10px; /* Agrega un poco de espacio alrededor del texto */
+  background-color: none; /* Fondo oscuro para que se destaque más sobre la imagen */
+   /* Bordes redondeados para la caja de descripción */
+  box-shadow: none; /* Agrega sombra alrededor del texto */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Suaviza la transición */
+}
+
+/* Al hacer hover en la imagen, mostramos el overlay */
+.card-img-wrapper:hover .overlay {
+  
+  opacity: 1;
+}
+
+/* Efecto adicional al hacer hover en el texto de la descripción */
+.card-img-wrapper:hover .description {
+  
+  transform: scale(1.05); /* Hace que el texto se agrande un poco */
+  opacity: 1;
+}
+
+
+
+
+
+
+
+/* Botón flotante de WhatsApp */
+.float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+}
+
+.my-float {
+  margin-top: 16px;
+}
+
+/* Estilo para el footer */
+footer {
+  padding: 30px 0;
+}
+
+footer .icon-content a {
+  color: #000;
+  font-size: 1.5em;
+  margin-right: 15px;
+}
+
+footer .icon-content a:hover {
+  color: #25d366;
+}
+
+/* Para las cards responsivas */
+@media (max-width: 1024px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas en tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: 1fr; /* Una columna en móviles */
+  }
+}
+
+/* Redes Sociales */
+
+ul {
+  list-style: none;
+}
+
+.example-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.example-2 .icon-content {
+  margin: 0 10px;
+  position: relative;
+}
+.example-2 .icon-content .tooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+.example-2 .icon-content:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: -50px;
+}
+.example-2 .icon-content a {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: #4d4d4d;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+.example-2 .icon-content a:hover {
+  box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+}
+.example-2 .icon-content a svg {
+  position: relative;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+}
+.example-2 .icon-content a:hover {
+  color: white;
+}
+.example-2 .icon-content a .filled {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #000;
+  transition: all 0.3s ease-in-out;
+}
+.example-2 .icon-content a:hover .filled {
+  height: 100%;
+}
+
+.example-2 .icon-content a[data-social="whatsapp"] .filled,
+.example-2 .icon-content a[data-social="whatsapp"] ~ .tooltip {
+  background-color: #128c7e;
+}
+
+.example-2 .icon-content a[data-social="facebook"] .filled,
+.example-2 .icon-content a[data-social="facebook"] ~ .tooltip {
+  background-color: #3b5998;
+}
+.example-2 .icon-content a[data-social="instagram"] .filled,
+.example-2 .icon-content a[data-social="instagram"] ~ .tooltip {
+  background: linear-gradient(
+    45deg,
+    #405de6,
+    #5b51db,
+    #b33ab4,
+    #c135b4,
+    #e1306c,
+    #fd1f1f
+  );
+}
+.example-2 .icon-content a[data-social="youtube"] .filled,
+.example-2 .icon-content a[data-social="youtube"] ~ .tooltip {
+  background-color: #ff0000;
+}
+
+
+
+
+
+/*boton filtro*/
+
+/* From Uiverse.io by levxyca */ 
+.botoncito {
+  font-size: 1.5rem;
+  color: #fafafa;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid #fafafa;
+  background: #252525;
+  box-shadow: 3px 3px #fafafa;
+  cursor: pointer;
+  margin: 35px 0;
+}
+
+.botoncito:active {
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+

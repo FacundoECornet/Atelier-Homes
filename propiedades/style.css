@@ -78,34 +78,48 @@
 
 /* Contenedor donde se muestran las cards */
 #listapropiedades {
-    display: flex;
-    flex-wrap: wrap;  /* Permite que las cards se ajusten al tamaño de la pantalla */
-    justify-content: center; /* Centra las cards horizontalmente */
-    gap: 20px;  /* Espacio entre las cards */
+  display: flex;
+  flex-wrap: wrap; /* Permite que las cards se ajusten al tamaño de la pantalla */
+  justify-content: center; /* Centra las cards horizontalmente */
+  gap: 20px; /* Espacio entre las cards */
 }
 
-/* Estilos para cada card */
+/* Estilos para cada card (sin bordes ni sombras) */
 .card {
-    width: 18rem;
-    margin: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
-}
-
-/* Efecto hover para las cards */
-.card:hover {
-    transform: scale(1.05);
+  width: 18rem;
+  margin: 10px;
+  background: none; /* Quita el fondo de la card */
+  border: none; /* Elimina bordes */
+  box-shadow: none; /* Elimina sombras */
+  text-align: center; /* Centra el texto */
 }
 
 /* Imagen de las cards */
 .card-img-top {
-    border-radius: 8px 8px 0 0;  /* Redondear la parte superior */
-    height: 200px;
-    object-fit: cover; /* Ajusta la imagen a las dimensiones de la card */
+  width: 100%; /* Asegura que ocupe todo el ancho */
+  height: 250px; /* Ajusta la altura */
+  object-fit: cover; /* Mantiene la proporción sin distorsión */
+  border-radius: 0; /* Elimina bordes redondeados */
+  transition: transform 0.3s ease-in-out; /* Agrega una animación de hover */
 }
 
+/* Efecto hover: solo la imagen se agranda */
+.card-img-top:hover {
+  transform: scale(1.05); /* Aumenta el tamaño de la imagen */
+}
 
+/* Estilos del texto (sin bordes ni sombras) */
+.card-body {
+  padding: 10px 0;
+}
+
+.card-title {
+  font-size: 1.2rem; /* Ajusta el tamaño del título */
+  font-weight: bold;
+  margin: 10px 0 0 0; /* Espacio superior */
+  color: #333; /* Color del texto */
+  border: none; /* Elimina cualquier borde */
+}
 
 /*boton card*/
 
